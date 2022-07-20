@@ -1,30 +1,30 @@
 import { INCREMENT, DECREMENT } from "@/constant";
 
 //同步action，就是指action的值为Object类型的一般对象
-export const createIncrementAction = (value: number) => ({
+export const createIncrementAction = (payload: number) => ({
   type: INCREMENT,
-  value,
+  payload,
 });
-export const createDecrementAction = (value: number) => ({
+export const createDecrementAction = (payload: number) => ({
   type: DECREMENT,
-  value,
+  payload,
 });
 
 // TODO 注意多次点击
 // 异步 +
-export const createIncrementAsyncAction = (value: number, time: number) => {
+export const createIncrementAsyncAction = (payload: number, time: number) => {
   return (dispatch) => {
     setTimeout(() => {
-      dispatch(createIncrementAction(value));
+      dispatch(createIncrementAction(payload));
     }, time);
   };
 };
 
 // 异步 -
-export const createDecrementAsyncAction = (value: number, time: number) => {
+export const createDecrementAsyncAction = (payload: number, time: number) => {
   return (dispatch) => {
     setTimeout(() => {
-      dispatch(createDecrementAction(value));
+      dispatch(createDecrementAction(payload));
     }, time);
   };
 };

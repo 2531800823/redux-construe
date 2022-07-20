@@ -2,30 +2,28 @@ import {
   createDecrementAsyncAction,
   createIncrementAsyncAction,
 } from "@/redux/actions";
-import store from "@/redux/store";
-import { useEffect, useState } from "react";
+import { useSelector,useDispatch } from 'react-redux'
 
 const InOrDe = () => {
-  const [state, setState] = useState(1);
+  // TODO 类型
+  const state = useSelector(state => state.inOrDeReducer)
+  const dispatch = useDispatch()
 
   const increment = () => {
-    store.dispatch({ type: "increment", value: 1 });
+    dispatch({ type: "increment", payload: 1 });
   };
   const decrement = () => {
-    store.dispatch({ type: "decrement", value: 1 });
+    dispatch({ type: "decrement", payload: 1 });
   };
   const incrementIAsync = () => {
-    store.dispatch(createIncrementAsyncAction(10, 300));
+    dispatch(createIncrementAsyncAction(10, 300));
   };
   const decrementAsync = () => {
-    store.dispatch(createDecrementAsyncAction(10, 500));
+    dispatch(createDecrementAsyncAction(10, 500));
   };
 
-  useEffect(() => {
-    store.subscribe(() => {
-      setState(store.getState().inOrDeReducer);
-    });
-  }, []);
+ 
+
 
   return (
     <div>

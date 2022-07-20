@@ -3,30 +3,26 @@ import {
   createDivideAsyncAction,
   createMultiplyAsyncAction,
 } from "@/redux/actions";
-import store from "@/redux/store";
-import { useEffect, useState } from "react";
+import { useSelector,useDispatch } from 'react-redux'
 
 const MuOrDi = () => {
-  const [state, setState] = useState(1);
+  const state = useSelector(state => state.muOrDiReducer)
+  const dispatch = useDispatch()
 
   const increment = () => {
-    store.dispatch({ type: ACTION.MULTIPLY, value: 2 });
+    dispatch({ type: ACTION.MULTIPLY, payload: 2 });
   };
   const decrement = () => {
-    store.dispatch({ type: ACTION.DIVIDE, value: 2 });
+    dispatch({ type: ACTION.DIVIDE, payload: 2 });
   };
   const incrementIAsync = () => {
-    store.dispatch(createMultiplyAsyncAction(10, 300));
+    dispatch(createMultiplyAsyncAction(10, 300));
   };
   const decrementAsync = () => {
-    store.dispatch(createDivideAsyncAction(10, 500));
+    dispatch(createDivideAsyncAction(10, 500));
   };
 
-  useEffect(() => {
-    store.subscribe(() => {
-      setState(store.getState().muOrDiReducer);
-    });
-  }, []);
+
 
   return (
     <div>
