@@ -1,5 +1,5 @@
 {
-  "name": "base_redux",
+  "name": "redux",
   "private": true,
   "version": "0.0.0",
   "type": "module",

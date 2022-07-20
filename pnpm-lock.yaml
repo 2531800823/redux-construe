@@ -10,7 +10,6 @@ importers:
       '@types/redux-promise': ^0.5.29
       path: ^0.12.7
       redux: ^4.2.0
-      redux-devtools-extension: ^2.13.9
       redux-promise: ^0.6.0
       redux-thunk: ^2.4.1
     dependencies:
@@ -18,14 +17,13 @@ importers:
       '@types/redux-promise': registry.npmmirror.com/@types/redux-promise/0.5.29
       path: registry.npmmirror.com/path/0.12.7
       redux: registry.npmmirror.com/redux/4.2.0
-      redux-devtools-extension: registry.npmmirror.com/redux-devtools-extension/2.13.9_redux@4.2.0
       redux-promise: registry.npmmirror.com/redux-promise/0.6.0
       redux-thunk: registry.npmmirror.com/redux-thunk/2.4.1_redux@4.2.0
     devDependencies:
       '@types/node': registry.npmmirror.com/@types/node/18.0.6
       '@types/react-redux': registry.npmmirror.com/@types/react-redux/7.1.24
 
-  apps/base_redux:
+  apps/react-redux:
     specifiers:
       '@types/react': ^18.0.15
       '@types/react-dom': ^18.0.6
@@ -44,7 +42,7 @@ importers:
       typescript: registry.npmmirror.com/typescript/4.7.4
       vite: registry.npmmirror.com/vite/3.0.2
 
-  apps/full_redux:
+  apps/redux:
     specifiers:
       '@types/react': ^18.0.15
       '@types/react-dom': ^18.0.6
@@ -1132,18 +1130,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-    dev: false
-
-  registry.npmmirror.com/redux-devtools-extension/2.13.9_redux@4.2.0:
-    resolution: {integrity: sha512-cNJ8Q/EtjhQaZ71c8I9+BPySIBVEKssbPpskBfsXqb8HJ002A3KRVHfeRzwRo6mGPqsm7XuHTqNSNeS1Khig0A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-devtools-extension/-/redux-devtools-extension-2.13.9.tgz}
-    id: registry.npmmirror.com/redux-devtools-extension/2.13.9
-    name: redux-devtools-extension
-    version: 2.13.9
-    deprecated: Package moved to @redux-devtools/extension.
-    peerDependencies:
-      redux: ^3.1.0 || ^4.0.0
-    dependencies:
-      redux: registry.npmmirror.com/redux/4.2.0
     dev: false
 
   registry.npmmirror.com/redux-promise/0.6.0:
