@@ -1,38 +1,48 @@
 import {
-  createDecrementAsyncAction,
-  createIncrementAsyncAction,
+  decrement,
+  decrementAsync,
+  increment,
+  incrementAsync,
 } from "@/redux/actions";
-import { useSelector,useDispatch } from 'react-redux'
+import { connect, useSelector } from 'react-redux';
 
-const InOrDe = () => {
-  // TODO 类型
-  const state = useSelector(state => state.inOrDeReducer)
-  const dispatch = useDispatch()
-
-  const increment = () => {
-    dispatch({ type: "increment", payload: 1 });
-  };
-  const decrement = () => {
-    dispatch({ type: "decrement", payload: 1 });
-  };
-  const incrementIAsync = () => {
-    dispatch(createIncrementAsyncAction(10, 300));
-  };
-  const decrementAsync = () => {
-    dispatch(createDecrementAsyncAction(10, 500));
-  };
-
- 
-
+const InOrDe = (props) => {
+  const { increment, decrement, incrementAsync, decrementAsync, state } = props;
 
   return (
     <div>
       <h1>当前结果为：{state}</h1>
-      <button onClick={increment}>同步+1</button>
-      <button onClick={decrement}>同步-1</button>
-      <button onClick={incrementIAsync}>异步+10</button>
-      <button onClick={decrementAsync}>异步-10</button>
+      <button onClick={()=>increment(1)}>同步+1</button>
+      <button onClick={()=>decrement(1)}>同步-1</button>
+      <button onClick={()=>incrementAsync(10,300)}>异步+10</button>
+      <button onClick={()=>decrementAsync(10,500)}>异步-10</button>
     </div>
   );
 };
-export default InOrDe;
+
+
+// export default connect(
+//   (state) => ({
+//     state: state.inOrDeReducer,
+//   }), //映射状态
+//   { increment, decrement, incrementAsync, decrementAsync } //映射操作状态的方法
+// )(InOrDe);
+function myConnect(fn, obj) {
+  
+  const value = useSelector(fn)
+  return (Component) => {
+    return (props) => {
+      return (<div>
+        <Component {...props} {...obj} {...value}/>
+      </div>)
+    }
+  }
+}
+
+export default myConnect(
+  (state) => ({
+    state: state.inOrDeReducer,
+  }), //映射状态
+  { increment, decrement, incrementAsync, decrementAsync } //映射操作状态的方法
+)(InOrDe);
+

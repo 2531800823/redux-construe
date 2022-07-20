@@ -8,5 +8,5 @@ import allReducer from "../reducer";
 
 export default createStore(
   allReducer,
-  composeWithDevTools(applyMiddleware(reduxThunk, reduxPromise) as any)
+  composeWithDevTools(applyMiddleware(reduxThunk, reduxPromise))
 );

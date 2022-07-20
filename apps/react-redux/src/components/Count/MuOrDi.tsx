@@ -6,6 +6,7 @@ import {
 import { useSelector,useDispatch } from 'react-redux'
 
 const MuOrDi = () => {
+  // TODO 类型
   const state = useSelector(state => state.muOrDiReducer)
   const dispatch = useDispatch()
 
@@ -21,8 +22,6 @@ const MuOrDi = () => {
   const decrementAsync = () => {
     dispatch(createDivideAsyncAction(10, 500));
   };
-
-
 
   return (
     <div>
