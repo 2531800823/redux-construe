@@ -13,9 +13,11 @@
     "@redux-devtools/extension": "^3.2.2",
     "@types/redux-promise": "^0.5.29",
     "path": "^0.12.7",
+    "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.6",
