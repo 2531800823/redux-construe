@@ -1,5 +1,5 @@
-import { MULTIPLY, DIVIDE } from '@/constant';
-import { IAction } from '@/types';
+import { MULTIPLY, DIVIDE } from "@/constant";
+import { IAction } from "@/types";
 
 //同步action，就是指action的值为Object类型的一般对象
 export const createMultiplyAction = (payload: number): IAction => ({
